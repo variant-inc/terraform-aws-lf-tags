@@ -37,7 +37,7 @@ def order_tags(grant):
     grant['Resource']['LFTagPolicy']['Expression'] = ordered_expression
     return grant
 
-# init of lakeformatin clinet
+# init of lakeformatin client
 client = boto3.client('lakeformation')
 # get all current LF-Tag based permissions
 existing_permissions = []
@@ -45,8 +45,8 @@ response_all = client.list_permissions(
     ResourceType='LF_TAG_POLICY',
 )
 existing_permissions.append(response_all['PrincipalResourcePermissions'])
-next_token = response_all['NextToken']
 while response_all['PrincipalResourcePermissions'] != []:
+    next_token = response_all['NextToken']
     response_all = client.list_permissions(
         ResourceType = 'LF_TAG_POLICY',
         NextToken = next_token
