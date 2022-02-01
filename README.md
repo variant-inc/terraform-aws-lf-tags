@@ -10,13 +10,15 @@
 ## Variable definitions
 
 ### assign
-variableDescription
+Contains all tag assignements.
 ```json
 "assign": {<map of tag assignments>}
 ```
 
 ### grants
-variableDescription
+Contains all data lake permissions, grants, based on LF-tags.
+Permissions:  'ALL'|'SELECT'|'ALTER'|'DROP'|'DELETE'|'INSERT'|'DESCRIBE'
+Resource types: 'DATABASE'|'TABLE' (use table for column)
 ```json
 "grants": {<map of tag grants>}
 ```
