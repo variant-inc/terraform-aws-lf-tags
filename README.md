@@ -27,7 +27,7 @@ Resource types: 'DATABASE'|'TABLE' (use table for column)
 ### `main.tf`
 ```terarform
 module "lf_tags" {
-  source  = "github.com/variant-inc/terrafom-aws-lf-tags?ref=v1"
+  source  = "github.com/variant-inc/terraform-aws-lf-tags?ref=v1"
 
   assign = var.assign
   grants = var.grants
