@@ -340,7 +340,7 @@ for db in dbs:
     # get desired tags
     try:
         db_index = next(i for i, item in enumerate(data['databases']) if item['dbname'] == db['Name'])
-    except StopIteration:
+    except (StopIteration, KeyError):
         print(f"DB {db['Name']} is not defined in JSON.")
         continue
     
@@ -363,7 +363,7 @@ for db in dbs:
         # get desired tags
         try:
             table_index = next(i for i, item in enumerate(data['databases'][db_index]['tables']) if item['tablename'] == table['Name'])
-        except StopIteration:
+        except (StopIteration, KeyError):
             print(f"Table {table['Name']} is not defined in JSON.")
             continue
         
@@ -386,7 +386,7 @@ for db in dbs:
             # get desired tags
             try:
                 column_index = next(i for i, item in enumerate(data['databases'][db_index]['tables'][table_index]['columns']) if item['columnname'] == column['Name'])
-            except StopIteration:
+            except (StopIteration, KeyError):
                 print(f"Column {column['Name']} is not defined in JSON.")
                 continue
             
